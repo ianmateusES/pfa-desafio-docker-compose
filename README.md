@@ -14,5 +14,14 @@ Crie o docker-compose.yaml com 3 serviços, um para cada tecnologia. Você dever
 ## Utilizando docker-compose
 ### Subindo os containers
 ```bash
-  docker-compose up -d
+docker-compose up -d
+```
+
+### Rotas
+- Listar dados do banco: Fazer um GET na url `http://localhost:8000/`
+- Inserir elementos ao banco: Fazer um POST na url `http://localhost:8000/` com o seguinte corpo:
+```json
+{
+  "name": "Kafka"
+}
 ```

@@ -19,7 +19,6 @@ services:
     #   - ./node:/home/node/api
     depends_on: 
       - mysql
-    command: sh -c "dockerize -wait tcp://mysql:3306 -timeout 100s -wait-retry-interval 10s node src/index.js"
     networks:
       - pfa-desafio-database
       - pfa-desafio-web

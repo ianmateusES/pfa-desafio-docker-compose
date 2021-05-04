@@ -5,6 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
+    "start:dev": "npx knex migrate:latest && npx knex seed:run && node src/index.js",
+    "seeds": "npx knex seed:run",
     "migration": "npx knex migrate:latest"
   },
   "dependencies": {

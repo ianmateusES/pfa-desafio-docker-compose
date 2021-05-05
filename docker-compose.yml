@@ -15,6 +15,7 @@ services:
   node:
     container_name: node-desafio-compose-pfa
     build: ./node
+    entrypoint: dockerize -wait tcp://mysql:3306 -timeout 50s -wait-retry-interval 10s yarn start:dev
     # volumes:
     #   - ./node:/home/node/api
     depends_on: 
@@ -26,6 +27,7 @@ services:
   nginx:
     container_name: nginx-desafio-compose-pfa
     build: ./nginx
+    entrypoint: dockerize -wait http://node:3333 -timeout 100s -wait-retry-interval 20s /docker-entrypoint.sh nginx -g 'daemon off;'
     ports:
       - 8000:80
     depends_on: 

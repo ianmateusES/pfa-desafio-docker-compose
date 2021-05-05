@@ -22,5 +22,4 @@ COPY --chown=node:node . .
 EXPOSE 3333
 
 # CMD yarn migration & yarn start
-
-CMD sh -c "dockerize -wait tcp://mysql:3306 -timeout 100s -wait-retry-interval 20s yarn start:dev"
+ENTRYPOINT [ "yarn", "start:dev" ]
